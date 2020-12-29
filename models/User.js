@@ -42,7 +42,7 @@ UserShema.pre("save", async function (next) {
 });
 
 // Sign JWT and return
-UserShema.methods.getSignedJwtToken = async function () {
+UserShema.methods.getSignedJwtToken = function () {
   return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRE,
   });
